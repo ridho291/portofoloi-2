@@ -1,0 +1,297 @@
+/* =========================================
+   1. RESET & VARIABEL GLOBAL
+   Bagian ini mengatur settingan dasar halaman
+   ========================================= */
+
+/* Mengimport font 'Poppins' dari Google Fonts agar terlihat modern dan bersih */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Selektor '*' artinya memilih SEMUA elemen di halaman */
+* {
+    margin: 0;              /* Menghapus jarak luar bawaan browser */
+    padding: 0;             /* Menghapus jarak dalam bawaan browser */
+    box-sizing: border-box; /* Memastikan padding tidak memperbesar ukuran elemen (penting!) */
+    scroll-behavior: smooth; /* Membuat efek scroll halus saat link navigasi diklik */
+}
+
+/* :root adalah tempat kita menyimpan 'variabel' warna agar mudah diganti */
+:root {
+    --primary-color: #0f172a;   /* Biru Sangat Gelap (untuk Background utama/Header) */
+    --secondary-color: #1e293b; /* Biru Gelap sedikit terang (untuk variasi) */
+    --accent-color: #38bdf8;    /* Biru Langit (untuk tombol/hover/teks penting) */
+    --text-light: #f8fafc;      /* Putih Tulang (untuk teks di latar gelap) */
+    --text-dark: #334155;       /* Abu-abu Gelap (untuk teks di latar putih) */
+    --bg-light: #ffffff;        /* Putih (untuk latar kartu/section about) */
+}
+
+/* Pengaturan dasar untuk seluruh badan website */
+body {
+    font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins */
+    line-height: 1.6;           /* Jarak antar baris teks agar enak dibaca */
+    color: var(--text-dark);    /* Warna teks default */
+    background-color: var(--bg-light); /* Warna background default */
+}
+
+/* Kelas .container menjaga agar isi website tidak terlalu melebar ke pinggir layar */
+.container {
+    max-width: 1100px;      /* Batas lebar maksimal konten */
+    margin: 0 auto;         /* Posisi otomatis di tengah (kiri-kanan auto) */
+    padding: 4rem 2rem;     /* Jarak dalam (atas-bawah 4rem, kiri-kanan 2rem) */
+}
+
+/* =========================================
+   2. NAVIGASI (HEADER)
+   ========================================= */
+header {
+    background-color: var(--primary-color); /* Latar belakang biru gelap */
+    padding: 1rem 5%;       /* Jarak dalam header */
+    position: sticky;       /* Membuat menu 'lengket' saat discroll */
+    top: 0;                 /* Menempel tepat di sisi atas layar */
+    z-index: 1000;          /* Memastikan menu selalu di lapisan paling atas */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Memberi bayangan halus di bawahnya */
+}
+
+nav {
+    display: flex;          /* Menggunakan Flexbox untuk tata letak */
+    justify-content: space-between; /* Logo di kiri mentok, Menu di kanan mentok */
+    align-items: center;    /* Memastikan logo dan menu sejajar secara vertikal */
+    max-width: 1200px;      /* Membatasi lebar navigasi */
+    margin: 0 auto;         /* Posisi tengah */
+}
+
+.logo {
+    color: var(--text-light);   /* Warna teks logo putih */
+    font-size: 1.5rem;          /* Ukuran font besar */
+    font-weight: 700;           /* Menebalkan huruf */
+    text-transform: uppercase;  /* Huruf besar semua */
+    letter-spacing: 1px;        /* Jarak antar huruf */
+}
+
+/* Menargetkan tag <span> di dalam .logo (tulisan 'porto') */
+.logo span {
+    color: var(--accent-color); /* Warnanya biru langit agar kontras */
+}
+
+nav ul {
+    display: flex;          /* Membuat daftar menu berjejer ke samping */
+    list-style: none;       /* Menghilangkan titik bullet points */
+    gap: 2rem;              /* Memberi jarak antar menu */
+}
+
+nav a {
+    text-decoration: none;      /* Menghilangkan garis bawah pada link */
+    color: var(--text-light);   /* Warna link putih */
+    font-weight: 500;           /* Ketebalan huruf sedang */
+    transition: 0.3s;           /* Animasi halus saat warna berubah */
+    font-size: 1rem;            /* Ukuran font menu */
+}
+
+/* Efek saat mouse diarahkan ke menu (Hover) */
+nav a:hover {
+    color: var(--accent-color); /* Berubah jadi biru langit */
+}
+
+/* =========================================
+   3. HERO SECTION (BAGIAN UTAMA)
+   ========================================= */
+.hero {
+    background-color: var(--primary-color); /* Latar belakang biru gelap */
+    color: var(--text-light);   /* Teks putih */
+    min-height: 100vh;          /* Tinggi minimal memenuhi 100% layar laptop */
+    display: flex;              /* Menggunakan Flexbox */
+    align-items: center;        /* Posisi tengah vertikal */
+    justify-content: center;    /* Posisi tengah horizontal */
+    padding: 0 10%;             /* Jarak kiri kanan */
+    gap: 3rem;                  /* Jarak antara teks dan gambar */
+    margin-top: -70px;          /* Kompensasi tinggi navbar agar pas di tengah */
+    padding-top: 70px;          /* Menambah padding atas agar konten tidak tertutup */
+}
+
+.hero-content {
+    flex: 1;                /* Mengambil ruang sebelah kiri */
+    max-width: 600px;       /* Membatasi lebar teks */
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;      /* Ukuran nama sangat besar */
+    margin: 10px 0;         /* Jarak atas bawah */
+    line-height: 1.2;       /* Jarak antar baris judul */
+    color: var(--accent-color); /* Warna nama biru langit */
+}
+
+.hero-content p {
+    font-size: 1.1rem;      /* Ukuran teks deskripsi */
+    margin-bottom: 30px;    /* Jarak bawah sebelum tombol */
+    color: #cbd5e1;         /* Warna abu-abu terang */
+}
+
+.btn-hero {
+    display: inline-block;          /* Agar padding berfungsi */
+    padding: 12px 30px;             /* Ukuran tombol */
+    background-color: var(--accent-color); /* Warna tombol biru langit */
+    color: var(--primary-color);    /* Teks tombol gelap (agar kontras) */
+    text-decoration: none;          /* Hilangkan garis bawah */
+    border-radius: 50px;            /* Membuat tombol lonjong (pil) */
+    font-weight: 700;               /* Teks tebal */
+    transition: 0.3s;               /* Animasi halus */
+}
+
+.btn-hero:hover {
+    background-color: white;        /* Saat hover jadi putih */
+    transform: translateY(-3px);    /* Tombol naik sedikit */
+    box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4); /* Efek cahaya */
+}
+
+.hero-logo img {
+    width: 350px;           /* Lebar gambar */
+    height: 350px;          /* Tinggi gambar */
+    object-fit: cover;      /* Memastikan gambar tidak gepeng */
+    border-radius: 50%;     /* Membuat gambar jadi bulat */
+    border: 5px solid var(--accent-color); /* Garis tepi biru pada gambar */
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.3); /* Efek bersinar */
+}
+
+/* =========================================
+   4. ABOUT SECTION
+   ========================================= */
+.about {
+    text-align: center;     /* Teks rata tengah */
+    background-color: white;
+}
+
+/* Mengatur judul (h2) untuk semua section (About, Proyek, Medsos) */
+section h2 {
+    font-size: 2.5rem;      /* Ukuran judul besar */
+    margin-bottom: 3rem;    /* Jarak bawah judul */
+    color: var(--primary-color); /* Warna biru gelap */
+    text-transform: uppercase;
+    position: relative;     /* Untuk garis bawah dekorasi */
+    display: inline-block;
+}
+
+/* Membuat garis kecil di bawah judul section */
+section h2::after {
+    content: '';            /* Elemen kosong */
+    display: block;
+    width: 50%;             /* Lebar garis setengah dari judul */
+    height: 4px;            /* Ketebalan garis */
+    background: var(--accent-color); /* Warna garis */
+    margin: 10px auto 0;    /* Posisi di tengah bawah */
+    border-radius: 2px;
+}
+
+.about-content {
+    max-width: 800px;       /* Membatasi lebar teks agar enak dibaca */
+    margin: 0 auto;         /* Tengah */
+    font-size: 1.1rem;      /* Ukuran font sedikit lebih besar */
+}
+
+.about-content strong {
+    color: var(--primary-color); /* Kata penting berwarna biru gelap */
+}
+
+/* =========================================
+   5. PROYEK SECTION (GRID SYSTEM)
+   ========================================= */
+.proyek {
+    background-color: #f1f5f9;  /* Background abu-abu sangat muda */
+    text-align: center;         /* Judul rata tengah */
+}
+
+.proyek-grid {
+    display: grid;              /* Mengaktifkan Layout Grid */
+    /* Kode Responsif Otomatis: Membuat kolom menyesuaikan lebar layar */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;                /* Jarak antar kartu */
+    padding: 1rem;
+}
+
+.proyek-card {
+    background: white;          /* Kartu warna putih */
+    border-radius: 15px;        /* Sudut membulat */
+    overflow: hidden;           /* Mencegah gambar keluar dari kotak */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Bayangan halus */
+    text-decoration: none;      /* Hapus garis link */
+    color: inherit;             /* Warna teks mengikuti parent */
+    transition: 0.3s;           /* Animasi */
+    display: flex;              /* Flex column agar isi rapi */
+    flex-direction: column;
+}
+
+.proyek-card:hover {
+    transform: translateY(-10px); /* Kartu naik saat hover */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Bayangan menebal */
+}
+
+.proyek-card img {
+    width: 100%;                /* Lebar gambar 100% dari kartu */
+    height: 200px;              /* Tinggi gambar tetap */
+    object-fit: cover;          /* Crop gambar agar rapi */
+}
+
+.proyek-info {
+    padding: 1.5rem;            /* Spasi dalam teks */
+    text-align: left;           /* Teks rata kiri */
+}
+
+.proyek-info h3 {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.proyek-info p {
+    color: #64748b;             /* Warna deskripsi abu-abu */
+    font-size: 0.95rem;
+}
+
+/* =========================================
+   6. MEDSOS SECTION
+   ========================================= */
+.medsos {
+    text-align: center;
+}
+
+.medsos-list {
+    display: flex;              /* Jejer ke samping */
+    justify-content: center;    /* Rata tengah */
+    gap: 3rem;                  /* Jarak antar item */
+    flex-wrap: wrap;            /* Turun ke bawah jika layar sempit */
+}
+
+.medsos-item {
+    display: flex;
+    flex-direction: column;     /* Ikon atas, teks bawah */
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: 0.3s;
+}
+
+.medsos-item:hover {
+    color: var(--accent-color); /* Warna berubah saat hover */
+    transform: scale(1.1);      /* Membesar sedikit */
+}
+
+.medsos-item img {
+    width: 60px;                /* Ukuran ikon */
+    height: 60px;
+    margin-bottom: 10px;        /* Jarak ikon ke teks */
+    transition: 0.3s;
+}
+
+/* =========================================
+   7. FOOTER
+   ========================================= */
+footer {
+    background-color: var(--primary-color); /* Biru gelap */
+    color: var(--text-light);               /* Putih */
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+footer p {
+    font-size: 0.9rem;
+    opacity: 0.8;                           /* Sedikit transparan */
+}
